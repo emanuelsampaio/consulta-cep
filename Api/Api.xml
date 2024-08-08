@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api</name>
+    </assembly>
+    <members>
+        <member name="T:Api.Controllers.CepController">
+            <summary>
+            Controller com os endpoints para consulta de CEP
+            </summary>
+        </member>
+        <member name="M:Api.Controllers.CepController.#ctor(Dominio.Interfaces.IServicoAplicacao)">
+            <summary>
+            Injeta o serviço na controller
+            </summary>
+            <param name="servicoAplicacao"></param>
+        </member>
+        <member name="M:Api.Controllers.CepController.GetBrasilAberto(System.String)">
+            <summary>
+            Consulta de CEP API Externa: Brasil Aberto
+            </summary>
+            <param name="cep"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.CepController.GetViaCep(System.String)">
+            <summary>
+            Consulta de CEP API Externa: Via CEP
+            </summary>
+            <param name="cep"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.CepController.GetOpenCep(System.String)">
+            <summary>
+            Consulta de CEP API Externa: Open CEP
+            </summary>
+            <param name="cep"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.CepController.GetBrasilApi(System.String)">
+            <summary>
+            Consulta de CEP API Externa: Brasil API
+            </summary>
+            <param name="cep"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.CepController.GetApiCep(System.String)">
+            <summary>
+            Consulta de CEP API Externa: Api CEP
+            </summary>
+            <param name="cep"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.CepController.GeRepublicaVirtual(System.String)">
+            <summary>
+            Consulta de CEP API Externa: República Virtual
+            </summary>
+            <param name="cep"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.CepController.ConsultarCep(System.String,Dominio.Enums.ApiExterna)">
+            <summary>
+            Retorna o resultado de uma consulta de uma determinada API de CEP
+            </summary>
+            <param name="cep"></param>
+            <param name="ext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.CepController.RetornarUrlCep(System.String,Dominio.Enums.ApiExterna)">
+            <summary>
+            Retorna a Url da API de CEP solicitada
+            </summary>
+            <param name="cep"></param>
+            <param name="api"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.CepController.ConfigurarProxy">
+            <summary>
+            Configurações de proxy, se houver algum barrando
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Api.Servicos.ServicoAplicacao">
+            <summary>
+            Serviço que retorna as configurações da aplicação
+            </summary>
+        </member>
+        <member name="M:Api.Servicos.ServicoAplicacao.#ctor(Microsoft.Extensions.Options.IOptions{Dominio.Classes.Aplicacao})">
+            <summary>
+            Injeta o serviço no construtor
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="M:Api.Servicos.ServicoAplicacao.Get">
+            <summary>
+            Retorna as configurações do appsettings
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

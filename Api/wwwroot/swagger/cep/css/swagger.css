@@ -1,0 +1,29 @@
+﻿.swagger-ui .topbar {
+    border-bottom: 1px solid #000;
+}
+.swagger-ui .topbar, .swagger-ui .topbar .topbar-wrapper, .swagger-ui .topbar .topbar-wrapper .link {
+    background-color: #fff;
+    color: #000;
+}
+.swagger-ui .topbar .topbar-wrapper .link img {
+    display: none;
+}
+.swagger-ui .topbar .topbar-wrapper .select-label {
+    color: #000;
+}
+.topbar-wrapper {
+    background: url('../img/logo.png') left center no-repeat;
+    height: 70px;
+}
+label.select-label span:first-child {
+    visibility: hidden;
+}
+a.link span.url:first-child {
+    display: none;
+}
+.swagger-ui .info .title small.version-stamp {
+    background-color: #1e90ff;
+}
+.swagger-ui .topbar .download-url-wrapper .select-label select {
+    border: 3px solid #1e90ff;
+}

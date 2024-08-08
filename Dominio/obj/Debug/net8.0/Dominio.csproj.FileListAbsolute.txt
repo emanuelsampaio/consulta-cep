@@ -1,0 +1,11 @@
+E:\Projetos\Outros\consulta-cep\Dominio\bin\Debug\net8.0\Dominio.deps.json
+E:\Projetos\Outros\consulta-cep\Dominio\bin\Debug\net8.0\Dominio.dll
+E:\Projetos\Outros\consulta-cep\Dominio\bin\Debug\net8.0\Dominio.pdb
+E:\Projetos\Outros\consulta-cep\Dominio\obj\Debug\net8.0\Dominio.GeneratedMSBuildEditorConfig.editorconfig
+E:\Projetos\Outros\consulta-cep\Dominio\obj\Debug\net8.0\Dominio.AssemblyInfoInputs.cache
+E:\Projetos\Outros\consulta-cep\Dominio\obj\Debug\net8.0\Dominio.AssemblyInfo.cs
+E:\Projetos\Outros\consulta-cep\Dominio\obj\Debug\net8.0\Dominio.csproj.CoreCompileInputs.cache
+E:\Projetos\Outros\consulta-cep\Dominio\obj\Debug\net8.0\Dominio.dll
+E:\Projetos\Outros\consulta-cep\Dominio\obj\Debug\net8.0\refint\Dominio.dll
+E:\Projetos\Outros\consulta-cep\Dominio\obj\Debug\net8.0\Dominio.pdb
+E:\Projetos\Outros\consulta-cep\Dominio\obj\Debug\net8.0\ref\Dominio.dll
