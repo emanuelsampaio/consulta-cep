@@ -1,60 +1,46 @@
 <img src="https://raw.githubusercontent.com/emanuelsampaio/consulta-cep/main/Api/wwwroot/swagger/cep/img/logo.png" alt="API CONSULTA CEP" />
 
-#API CONSULTA CEP
-<hr />
+# API CONSULTA CEP
+
+Projeto desenvolvido com o intuito de disponibilizar via rest, a consulta de CEP nos principais serviços gratuitos.
 
 
-<!--ts-->
- * [Sobre](#Sobre)
- * [Estrutura](#Estutura)
- * [Instalação](#Instalação)
- * [Ambientes](#Ambientes) 
- * [Tecnologias](#Tecnologias)
- * [Documentações](#Documentações)
- * [Utilização](#Utilização)
-<!--te-->
+## Tecnologias 🚀
+
+- .NET 8
+- Swagger
+- Visual Studio 2022
 
 
-##Sobre
-Descrição
+## Estrutura 📚
+
+A solução **consulta-cep** possui dois projetos, conforme a seguir:
+
+- **Api** : Projeto API Web do ASP.NET Core contendo todos os endpoints para consulta de CEP. Possui o projeto *Dominio* como dependência, além dos pacotes *Newtonsoft.Json 13.0.3* (para desserialização JSON) e *Swashbuckle.AspNetCore 6.4.0* (para documentação da API via Swagger);
+- **Dominio** : Projeto de Biblioteca de Classes C# contendo todas as entidades de negócio utilizadas pela aplicação. Este projeto não possui dependências.
+
+<img src="https://raw.githubusercontent.com/emanuelsampaio/consulta-cep/main/Screenshots/1.png" alt="Estutura" />
 
 
-<hr />
+## Funcionalidades 🔥
 
-##Estrutura
-Descrição
+Consultas de CEP nos seguintes serviços:
 
+- Brasil Aberto;
+- Via CEP;
+- Open CEP;
+- Brasil API;
+- Api CEP;
+- República Virtual.
 
-<hr />
-
-##Instalação
-Descrição
-
-
-<hr />
-
-##Ambientes
-Descrição
+<img src="https://raw.githubusercontent.com/emanuelsampaio/consulta-cep/main/Screenshots/2.png" alt="Swagger" />
 
 
-<hr />
+## Instalação 🔨
 
-##Tecnologias
-Descrição
-
-
-<hr />
-
-##Documentações
-Descrição
+- `git clone https://github.com/emanuelsampaio/consulta-cep`
 
 
-<hr />
+---
 
-##Utilização
-Descrição
-
-
-<hr />
-
-#####Desenvolvimento: <http://www.emanuelsampaio.com.br>
+##### Desenvolvimento: <http://www.emanuelsampaio.com.br>
