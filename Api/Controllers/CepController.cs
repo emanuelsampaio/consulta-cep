@@ -30,17 +30,59 @@ namespace Api.Controllers
 
 
         /// <summary>
+        /// Retorna o status de cada uma das APIs externas. Diz se estão disponíveis ou não
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route(template: Constantes.Templates.Ping)]
+        [Produces("application/json")]
+        [ProducesResponseType<List<Retorno>>(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Ping()
+        {
+            HttpResponseMessage response;
+
+            List<Retorno> retorno = new List<Retorno>();
+
+            try
+            {
+                foreach (ApiExterna apiExterna in Enum.GetValues(typeof(ApiExterna)))
+                {
+                    response = await ConsultarCep(Constantes.CEP_TESTE, apiExterna);
+
+                    Retorno r = new Retorno()
+                    {
+                        API = apiExterna.ToString(),
+                        STATUS = (response.IsSuccessStatusCode ? RetornoApi.ON : RetornoApi.OFF).ToString()
+                    };
+
+                    retorno.Add(r);
+                }
+
+                return Ok(retorno);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(Constantes.Mensagens.ERRO_PING + ex.Message);
+            }
+        }
+
+
+        /// <summary>
         /// Consulta de CEP API Externa: Brasil Aberto
         /// </summary>
         /// <param name="cep"></param>
         /// <returns></returns>
         [HttpGet]
         [Route(template: Constantes.Templates.BrasilAberto + "/{cep}")]
+        [Produces("application/json")]
+        [ProducesResponseType<BrasilAberto>(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetBrasilAberto([FromRoute] string cep)
         {
             if (!Validacao.IsCep(cep))
             {
-                return BadRequest("CEP Inválido.");
+                return BadRequest(Constantes.Mensagens.CEP_INVALIDO);
             }
 
             HttpResponseMessage response = await ConsultarCep(cep, ApiExterna.BRASIL_ABERTO);
@@ -54,7 +96,7 @@ namespace Api.Controllers
                 return Ok(dto);
             }
 
-            return BadRequest("Ocorreu um problema ao buscar o CEP.");
+            return BadRequest(Constantes.Mensagens.ERRO_CEP);
         }
 
 
@@ -65,11 +107,14 @@ namespace Api.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route(template: Constantes.Templates.ViaCep + "/{cep}")]
+        [Produces("application/json")]
+        [ProducesResponseType<ViaCep>(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetViaCep([FromRoute] string cep)
         {
             if (!Validacao.IsCep(cep))
             {
-                return BadRequest("CEP Inválido.");
+                return BadRequest(Constantes.Mensagens.CEP_INVALIDO);
             }
 
             HttpResponseMessage response = await ConsultarCep(cep, ApiExterna.VIA_CEP);
@@ -83,7 +128,7 @@ namespace Api.Controllers
                 return Ok(dto);
             }
 
-            return BadRequest("Ocorreu um problema ao buscar o CEP.");
+            return BadRequest(Constantes.Mensagens.ERRO_CEP);
         }
 
 
@@ -94,11 +139,14 @@ namespace Api.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route(template: Constantes.Templates.OpenCep + "/{cep}")]
+        [Produces("application/json")]
+        [ProducesResponseType<OpenCep>(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetOpenCep([FromRoute] string cep)
         {
             if (!Validacao.IsCep(cep))
             {
-                return BadRequest("CEP Inválido.");
+                return BadRequest(Constantes.Mensagens.CEP_INVALIDO);
             }
 
             HttpResponseMessage response = await ConsultarCep(cep, ApiExterna.OPEN_CEP);
@@ -112,7 +160,7 @@ namespace Api.Controllers
                 return Ok(dto);
             }
 
-            return BadRequest("Ocorreu um problema ao buscar o CEP.");
+            return BadRequest(Constantes.Mensagens.ERRO_CEP);
         }
 
 
@@ -123,11 +171,14 @@ namespace Api.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route(template: Constantes.Templates.BrasilApi + "/{cep}")]
+        [Produces("application/json")]
+        [ProducesResponseType<BrasilApi>(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetBrasilApi([FromRoute] string cep)
         {
             if (!Validacao.IsCep(cep))
             {
-                return BadRequest("CEP Inválido.");
+                return BadRequest(Constantes.Mensagens.CEP_INVALIDO);
             }
 
             HttpResponseMessage response = await ConsultarCep(cep, ApiExterna.BRASIL_API);
@@ -141,7 +192,7 @@ namespace Api.Controllers
                 return Ok(dto);
             }
 
-            return BadRequest("Ocorreu um problema ao buscar o CEP.");
+            return BadRequest(Constantes.Mensagens.ERRO_CEP);
         }
 
 
@@ -152,11 +203,14 @@ namespace Api.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route(template: Constantes.Templates.ApiCep + "/{cep}")]
+        [Produces("application/json")]
+        [ProducesResponseType<ApiCep>(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetApiCep([FromRoute] string cep)
         {
             if (!Validacao.IsCep(cep))
             {
-                return BadRequest("CEP Inválido.");
+                return BadRequest(Constantes.Mensagens.CEP_INVALIDO);
             }
 
             HttpResponseMessage response = await ConsultarCep(cep, ApiExterna.API_CEP);
@@ -170,7 +224,7 @@ namespace Api.Controllers
                 return Ok(dto);
             }
 
-            return BadRequest("Ocorreu um problema ao buscar o CEP.");
+            return BadRequest(Constantes.Mensagens.ERRO_CEP);
         }
 
 
@@ -181,11 +235,14 @@ namespace Api.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route(template: Constantes.Templates.RepVirtual + "/{cep}")]
+        [Produces("application/json")]
+        [ProducesResponseType<RepublicaVirtual>(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GeRepublicaVirtual([FromRoute] string cep)
         {
             if (!Validacao.IsCep(cep))
             {
-                return BadRequest("CEP Inválido.");
+                return BadRequest(Constantes.Mensagens.CEP_INVALIDO);
             }
 
             HttpResponseMessage response = await ConsultarCep(cep, ApiExterna.REP_VIRTUAL);
@@ -199,7 +256,7 @@ namespace Api.Controllers
                 return Ok(dto);
             }
 
-            return BadRequest("Ocorreu um problema ao buscar o CEP.");
+            return BadRequest(Constantes.Mensagens.ERRO_CEP);
         }
 
 
