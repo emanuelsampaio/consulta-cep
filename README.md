@@ -1,4 +1,4 @@
-<img src="" alt="API CONSULTA CEP" />
+<img src="https://raw.githubusercontent.com/emanuelsampaio/consulta-cep/main/Api/wwwroot/swagger/cep/img/logo.png" alt="API CONSULTA CEP" />
 
 #API CONSULTA CEP
 <hr />
